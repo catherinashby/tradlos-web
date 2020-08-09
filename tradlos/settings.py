@@ -58,8 +58,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-#                ],
-#            'builtins': [ 'tradlos.templatetags.base_tags'
+                ],
+            'builtins': [ 'tradlos.templatetags.base_tags'
                 ],
         },
     },
@@ -122,7 +122,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 STATIC_URL = '/static/'
 
-#STATICFILES_DIRS = [ ( 'common', Path( BASE_DIR ).joinpath( 'tradlos/static' ) ), ]
+STATICFILES_DIRS = [ ( 'common', Path( BASE_DIR ).joinpath( 'tradlos/static' ) ), ]
 
 #    local configuration values
 try:
