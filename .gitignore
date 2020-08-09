@@ -58,6 +58,7 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
+settings_local.py
 db.sqlite3
 db.sqlite3-journal
 
@@ -137,3 +138,5 @@ py38
 *.psproj
 # sqlite3 databases
 *.db3
+# and
+setup.cfg
