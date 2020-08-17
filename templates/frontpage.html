@@ -1,13 +1,26 @@
 {% extends "base.html" %}
 {% block styles %}
-  .center	{
-              margin: 25vh 25vw;
-              text-align: center;
-            }
-	main	{
-              background-color: #f8f8ff; /* Ghost White */
-            }
+  div.sysmsgs p { padding: 0 2.5em; text-align: center; }
+  div.events    { display: inline-block; max-width: 300px; float: left; }
+  div.events p  { margin: 0.5em; }
+  div.general   { display: inline-block; }
+  div.general p { margin: 0.25em; display: inline-block; }
 {% endblock styles %}
 {% block contents %}
-    <div class="center">This page intentionally left blank.</div>
+    <div class="sysmsgs">{% for msg in sysmsgs %}
+      <p>{{ msg.message_text }}</p>
+    {% endfor %}</div>
+    <div class="wrap">
+      <div class="events">{% for evt in events %}
+        <p>
+          <span class="iblk big bold">{{ evt.event_title }}</span>
+          {{ evt.event_body }}</p>
+      {% endfor %}</div>
+      <div class="general">
+        <p>General content</p>
+        <p>blurbs</p>
+        <p>ads</p>
+        <p>images</p>
+      </div>
+    </div>
 {% endblock %}

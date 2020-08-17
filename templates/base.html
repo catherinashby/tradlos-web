@@ -14,6 +14,9 @@
   <title>{% block title %}{{ site_name }}{% endblock %}</title>
   <link rel="stylesheet" type="text/css" href="{% static 'common/css/minimum.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'common/css/style.css' %}" />
+  <style type="text/css" >
+    main    { float: left; width: 100%; }
+  </style>
   <style type="text/css" >{% block styles %}{% endblock %}  </style>
   <script src="{% static 'common/js/classList.js' %}"></script>
   <script src="{% static 'common/js/starter.js' %}"></script>
