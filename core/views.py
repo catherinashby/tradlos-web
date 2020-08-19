@@ -21,4 +21,4 @@ def landing(request):
 def homepage(request):
     context = { 'request': request }
 
-    render( request, 'homepage.html', context )
+    return render( request, 'homepage.html', context )

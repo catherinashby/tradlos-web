@@ -20,4 +20,5 @@ from core import views as coreview
 urlpatterns = [
     path('', coreview.landing, name="landing"),
     path('admin/', admin.site.urls),
+    path('home/', coreview.homepage, name="homepage"),
 ]

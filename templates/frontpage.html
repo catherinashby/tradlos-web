@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 {% block styles %}
-  div.sysmsgs p { padding: 0 2.5em; text-align: center; }
-  div.events    { display: inline-block; max-width: 300px; float: left; }
+  div.sysmsgs p { padding: 0 2.5em; text-align: center;
+                  background-color: #f0f8ff; /* Alice Blue */}
+  div.wrap      { width: 100%; padding: 0 2vw; }
+  div.events    { display: inline-block; float: left;
+                  max-width: 200px; min-height: 99vh;
+                  background-color: #faf0e6;  /* Linen */ }
   div.events p  { margin: 0.5em; }
-  div.general   { display: inline-block; }
-  div.general p { margin: 0.25em; display: inline-block; }
+  div.container { display: inline-block; width: 20vw; margin: 1vh 1vw; }
+  div.square    { /* aspect-ratio box: square */ padding-top: 100%;
+                  position: relative; width: 100%; border: thin solid blue;
+                  background-color: #7ffad4; /* Aquamarine */ }
+  div.content   { position: absolute; margin: 10px;
+                  top: 0; right: 0; bottom: 0; left: 0;
+                  background-color: #fffaf0;  /* Floral White */ }
 {% endblock styles %}
 {% block contents %}
     <div class="sysmsgs">{% for msg in sysmsgs %}
@@ -17,10 +26,26 @@
           {{ evt.event_body }}</p>
       {% endfor %}</div>
       <div class="general">
-        <p>General content</p>
-        <p>blurbs</p>
-        <p>ads</p>
-        <p>images</p>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #1</span></div></div></div>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #2</span></div></div></div>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #3</span></div></div></div>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #4</span></div></div></div>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #5</span></div></div></div>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #6</span></div></div></div>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #7</span></div></div></div>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #8</span></div></div></div>
+        <div class="container"><div class="square"><div class="content">
+          <span class="iblk ta_c">Free Game #9</span></div></div></div>
       </div>
     </div>
 {% endblock %}
+<!--
+  -->
