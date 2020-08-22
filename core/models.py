@@ -26,3 +26,26 @@ class EventMessage(models.Model):
 
     class Meta:
         db_table = 'tradlos_eventmessage'
+
+class Game(models.Model):
+    #
+    PUBLIC = 'PB'
+    RESTRICTED = 'RS'
+    BETA = 'BT'
+    STATUS_CHOICES = [
+        (     PUBLIC, "Public" ),
+        ( RESTRICTED, "Restricted" ),
+        (       BETA, "Beta" ),
+    ]
+    #   id
+    game_status = models.CharField(max_length=2,
+                  choices=STATUS_CHOICES,default=BETA)
+    game_name = models.CharField(max_length=40)
+    game_url_root = models.CharField(max_length=24)
+    game_removed = models.DateTimeField(null=True,blank=True)
+
+    def __str__(self):
+        return self.game_name
+
+    class Meta:
+        db_table = 'tradlos_game'

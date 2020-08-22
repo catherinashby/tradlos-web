@@ -14,6 +14,7 @@
   div.content   { position: absolute; margin: 10px;
                   top: 0; right: 0; bottom: 0; left: 0;
                   background-color: #fffaf0;  /* Floral White */ }
+  div.content a { text-decoration: none; color: black; }
 {% endblock styles %}
 {% block contents %}
     <div class="sysmsgs">{% for msg in sysmsgs %}
@@ -25,26 +26,11 @@
           <span class="iblk big bold">{{ evt.event_title }}</span>
           {{ evt.event_body }}</p>
       {% endfor %}</div>
-      <div class="general">
+      <div class="general">{% for gm in gamelist %}
         <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #1</span></div></div></div>
-        <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #2</span></div></div></div>
-        <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #3</span></div></div></div>
-        <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #4</span></div></div></div>
-        <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #5</span></div></div></div>
-        <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #6</span></div></div></div>
-        <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #7</span></div></div></div>
-        <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #8</span></div></div></div>
-        <div class="container"><div class="square"><div class="content">
-          <span class="iblk ta_c">Free Game #9</span></div></div></div>
-      </div>
+          <a href="{{ gm.game_url_root }}/home">{{ gm.game_name }}</a>
+        </div></div></div>
+      {% endfor %}</div>
     </div>
 {% endblock %}
 <!--
