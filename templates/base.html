@@ -25,14 +25,15 @@
 <body>
   <header class="group">{% block header %}
     <div class="personalization">{% block personalization %}
-      <div>{% if request.user.id %}<label>Logged In As:</label>{% endif %}
-        <span class="firstname">{{ request.user.first_name }}</span>
-        <span class="lastname">{{ request.user.last_name }}</span>
-      </div>
-      <div class="logger">
-        {% if request.user.id %}<a>Log Out</a>
-        {% else %}<a>Sign&nbsp;In &mdash; Sign&nbsp;Up</a>
-      {% endif %}</div>
+      {% if request.user.is_anonymous %}
+        <a href="{% url 'entry' %}"><span class="icon">&#9094;</span></a>{% else %}
+        <a id="user_menu"><span class="ident {% user_class %}">{% user_initials %}</span></a>
+        <ul class="hidden">{% if request.user.is_staff %}
+          <li><a href="/admin/">Admin</a></li>{% endif %}
+          <li><a href="#">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+        </ul>
+      {% endif %}
     {% endblock personalization %}</div>
     <div class="branding">{% block branding %}
       <span class="icon" >&#8251;</span>
