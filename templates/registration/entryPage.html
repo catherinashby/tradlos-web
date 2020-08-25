@@ -1,11 +1,55 @@
 {% extends "base.html" %}
 
 {% block styles %}
-.center	{ margin: 5vh 25vw; text-align: center; }
+#formbox            { width: 50vw; margin: 5vh auto; padding: 2em; }
+#formbox p          { line-height: 1.5; padding: 1em; }
+p span.icon         { font-size: x-small; position: relative; top: -0.5em; }
+p span.icon:hover   { cursor: pointer; }
+#user_name          { margin-top: 1vh; }
+div.errmsg          { font-size: smaller; color: maroon; }
+p.buttons button    { margin: 0 0.5em; }
 {% endblock styles %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Handler when the DOM is fully loaded
+        const form = document.querySelector('#formbox form');
+        const p_help = form.querySelector('p.helptext');
+        const icon = form.querySelector('span.icon');
+        const acct = form.username;
+
+        icon.addEventListener('click', function() {
+            p_help.classList.toggle('hidden');
+        });
+    });
+</script>
+{% endblock %}
+
 
 {% block personalization %}{% endblock personalization %}
 
 {% block contents %}
-    <div class="center">This is the entry page.</div>
+    <div id="formbox" class="center">
+      <form action="{% url 'entry' %}" method="post">
+        {% csrf_token %}
+        <p class="ta_c">
+          <label for="user_name">User name:
+            <span class="icon">&#9432;</span>
+          </label>
+          <input id="user_name" type="text" name="user_name" required
+              value="{{ current_name }}" minlength=8 pattern="[0-9A-Za-z@\.\+\-_]+" >
+          <div class="errmsg ta_c">{{ error_message }}</div>
+        </p>
+        <p class="helptext {{ show_help|default:'hidden' }}">
+        Usernames are at least eight (8) characters long, and
+        contain only letters, numbers, and these special characters:
+        <em class="bold">&#64;&nbsp;&#46;&nbsp;&#43;&nbsp;&#45;&nbsp;&#95;</em>
+        </p>
+        <p class="buttons ta_c">
+          <button type="submit" name="sign_in">Sign In</button>
+          <button type="submit" name="sign_up">Sign Up</button>
+        </p>
+      </form>
+    </div>
 {% endblock contents %}
