@@ -1,9 +1,12 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-from .models import SystemMessage, EventMessage
+from .models import User, SystemMessage, EventMessage, Game
 
+admin.site.register(User, UserAdmin)
 admin.site.register(SystemMessage)
 admin.site.register(EventMessage)
+admin.site.register(Game)
 
 admin.site.site_header = "Tradlos Administration"
 #AdminSite.site_header
