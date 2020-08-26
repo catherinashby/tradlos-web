@@ -52,7 +52,7 @@ def entry_page(request):
                 else:
                     context['error_message'] = "Name not found"
         else:
-            context['show_help'] = ""
+            context['show_help'] = "nop"
 
     return render( request, template, context )
 

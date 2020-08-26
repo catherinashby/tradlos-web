@@ -1,4 +1,5 @@
 /* generics */
+.nop            { /* a do-nothing class */ }
 .bold			{ font-weight: 700; }
 .italic			{ font-style: italic; }
 .small			{ font-size: smaller; }
